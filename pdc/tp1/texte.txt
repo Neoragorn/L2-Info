@@ -1,0 +1,4 @@
+Coucou, voici un test en c.
+Au revoir !
+/*voici un commentaire */ aaa
+hello, on teste a nouveau :)

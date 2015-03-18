@@ -1,0 +1,85 @@
+##
+## Makefile for sof in /home/casier_s/pdc/tp2
+## 
+## Made by sofian casier
+## Login   <casier_s>
+## 
+## Started on  Mon Feb  9 15:56:20 2015 sofian casier
+## Last update Wed Feb 11 11:29:23 2015 sofian casier
+##
+
+FLAG = -g
+
+CC	=	cc
+
+SRC	=	mcu_wc.c \
+		mcu_readl.c 
+
+SRC2	=	mcu_ww.c \
+		mcu_readl.c 
+
+SRC3	=	mcu_wl.c \
+		mcu_readl.c 
+
+SRC4	=	mcu_rev.c \
+		mcu_readl.c 
+
+SRC5	=	mcu_uniq.c \
+		mcu_readl.c 
+
+SRC6	=	mcu_xxd.c \
+		mcu_readl.c 
+
+OBJ 	=	$(SRC:.c=.o)
+
+OBJ2 	=	$(SRC2:.c=.o)
+
+OBJ3 	=	$(SRC3:.c=.o)
+
+OBJ4 	=	$(SRC4:.c=.o)
+
+OBJ5 	=	$(SRC5:.c=.o)
+
+OBJ6 	=	$(SRC6:.c=.o)
+
+NAME	=	mcu_wc
+
+NAME2	=	mcu_ww
+
+NAME3	=	mcu_wl
+
+NAME4	=	mcu_rev
+
+NAME5	=	mcu_uniq
+
+NAME6	=	mcu_xxd
+
+all: $(NAME) $(NAME2) $(NAME3) $(NAME4) $(NAME5) $(NAME6)
+
+$(NAME) : $(OBJ)
+	$(CC) $(FLAG) $(OBJ) -o $(NAME)
+
+$(NAME2) : $(OBJ2)
+	$(CC) $(FLAG) $(OBJ2) -o $(NAME2)
+
+$(NAME3) : $(OBJ3)
+	$(CC) $(FLAG) $(OBJ3) -o $(NAME3)
+
+$(NAME4) : $(OBJ4)
+	$(CC) $(FLAG) $(OBJ4) -o $(NAME4)
+
+$(NAME5) : $(OBJ5)
+	$(CC) $(FLAG) $(OBJ5) -o $(NAME5)
+
+$(NAME6) : $(OBJ6)
+	$(CC) $(FLAG) $(OBJ6) -o $(NAME6)
+
+clean: 
+	rm -f $(OBJ) $(OBJ2) $(OBJ3) $(OBJ4) $(OBJ5) $(OBJ6)
+
+fclean: clean
+	rm -f $(NAME) $(NAME2) $(NAME3) $(NAME4) $(NAME5) $(NAME6)
+
+re: 	fclean all
+
+.PHONY: all clean fclean re
