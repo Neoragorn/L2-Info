@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Carte.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Carte" rel="Chapter" href="Carte.html">
+<link title="Main" rel="Chapter" href="Main.html"><link title="le type de donnees" rel="Section" href="#2_letypededonnees">
+<link title="Constructeur et selecteur" rel="Section" href="#2_Constructeuretselecteur">
+<link title="Procedure dimpression" rel="Section" href="#2_Proceduredimpression">
+<link title="Divers" rel="Section" href="#2_Divers">
+<title>Main</title>
+</head>
+<body>
+<div class="navbar"><a href="Carte.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_Main.html">Main</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Main: <code class="code">sig</code> <a href="Main.html">..</a> <code class="code">end</code></pre>Module destine a la creation et representation de main de 5 cartes<br>
+<b>Author(s):</b> : casier_s;duques_p Univ Lille 1<br>
+<hr width="100%">
+<br>
+<span id="2_letypededonnees"><h2>le type de donnees</h2></span><br>
+<br>
+Une main est un ensemble de cinq cartes differentes d'un jeu de poker.<br>
+<pre><span id="TYPEmain"><span class="keyword">type</span> <code class="type"></code>main</span> </pre>
+
+<br>
+<span id="2_Constructeuretselecteur"><h2>Constructeur et selecteur</h2></span><br>
+<pre><span id="VALcree"><span class="keyword">val</span> cree</span> : <code class="type"><a href="Carte.html#TYPEcarte">Carte.carte</a> * <a href="Carte.html#TYPEcarte">Carte.carte</a> * <a href="Carte.html#TYPEcarte">Carte.carte</a> * <a href="Carte.html#TYPEcarte">Carte.carte</a> * <a href="Carte.html#TYPEcarte">Carte.carte</a> -><br>       <a href="Main.html#TYPEmain">main</a></code></pre><br>
+cree (c1,c2,c3,c4,c5) cree une main avec les cinq cartes donnees.<br>
+<pre><span id="VALcarte"><span class="keyword">val</span> carte</span> : <code class="type"><a href="Main.html#TYPEmain">main</a> -> int -> <a href="Carte.html#TYPEcarte">Carte.carte</a></code></pre><div class="info">
+carte m i renvoie la carte de rang i dans l'ordre croissant dans la main m. Les cartes carte m 1, carte m 2, carte m 3, carte m 4, carte m 5 sont les cinq cartes de la main m et leurs hauteurs sont dans l'ordre croissant.
+CU : l'entier i doit etre compris entre 1 et 5. Sinon, declenche l'exception Failure "Main.carte : indice incorrect".<br>
+</div>
+<br>
+<span id="2_Proceduredimpression"><h2>Procedure dimpression</h2></span><br>
+<pre><span id="VALimprimer"><span class="keyword">val</span> imprimer</span> : <code class="type"><a href="Main.html#TYPEmain">main</a> -> unit</code></pre><div class="info">
+imprimer m imprime la main m. Par exemple, l'impression a la forme <code class="code"> 2C, 3K, 8K, 9K, RP</code><br>
+</div>
+<br>
+<span id="2_Divers"><h2>Divers</h2></span><br>
+<pre><span id="VALmain_alea"><span class="keyword">val</span> main_alea</span> : <code class="type">unit -> <a href="Main.html#TYPEmain">main</a></code></pre><div class="info">
+main_alea () renvoie une main de cinq cartes choisies aleatoirement dans un jeu de 52 cartes.<br>
+</div>
+<pre><span id="VALdistribue"><span class="keyword">val</span> distribue</span> : <code class="type">int -> <a href="Main.html#TYPEmain">main</a> array</code></pre><div class="info">
+distribue n renvoie un tableau de n mains extraites d'un jeu de 52 cartes.
+CU : l'entier n doit etre compris entre 2 et 5. Sinon, declenche l'exception Failure "Main.distribue : nombre joueurs incorrect".<br>
+</div>
+</body></html>

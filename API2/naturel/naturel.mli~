@@ -1,0 +1,38 @@
+type nat
+
+val zero : nat
+
+val un : nat
+
+val taille : nat -> int
+
+val taille : int list -> int
+
+val entier_en_nat : int -> int list = <fun>
+
+val ajouter_elem : string -> string = <fun>
+
+val chaine_en_nat : string -> int list = <fun>
+
+val nat_en_chaine : int list -> string = <fun>
+
+val compare : 'a list -> 'a list -> int = <fun>
+
+val max_int : 'a list -> 'a list -> 'a list = <fun>
+
+val min_int : 'a list -> 'a list -> 'a list = <fun>
+
+val add : int list -> int list -> int list = <fun>
+
+val mul_chiffre : int list -> int -> int list = <fun>
+
+val mul : int list -> int list -> int list = <fun>
+
+val nat_alea : int -> int list = <fun>
+
+val fact : int -> int list = <fun>
+
+val puissance : int list -> int -> int list = <fun>
+
+val fibo : int -> int list = <fun>
+

@@ -1,0 +1,21 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Lexemes" rel="Chapter" href="Lexemes.html"><title>Lexemes</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;operateur&nbsp;=&nbsp;<span class="constructor">Add</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Sub</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Mul</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Div</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Mod</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;lexeme&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Par_ouvrante</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Par_fermante</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Int</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Op</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lexemes</span>.operateur<br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Caractere_non_autorise</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;lexemes&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lexemes</span>.lexeme&nbsp;array<br>
+<span class="keyword">end</span></code></body></html>

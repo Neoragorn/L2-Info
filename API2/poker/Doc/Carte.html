@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Main.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Carte" rel="Chapter" href="Carte.html">
+<link title="Main" rel="Chapter" href="Main.html"><link title="Les types de donnees" rel="Section" href="#2_Lestypesdedonnees">
+<link title="Constructeur et selecteurs" rel="Section" href="#2_Constructeuretselecteurs">
+<link title="Fonctions de comparaison" rel="Section" href="#2_Fonctionsdecomparaison">
+<link title="Procedures d'mpression" rel="Section" href="#2_Proceduresdmpression">
+<link title="Constructions de paquet de cartes" rel="Section" href="#2_Constructionsdepaquetdecartes">
+<title>Carte</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Main.html">Next</a>
+</div>
+<center><h1>Module <a href="type_Carte.html">Carte</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Carte: <code class="code">sig</code> <a href="Carte.html">..</a> <code class="code">end</code></pre>Module destine a la representation des cartes<br>
+<b>Author(s):</b> FIL - IEEA - Univ. Lille 1<br>
+<hr width="100%">
+<br>
+<span id="2_Lestypesdedonnees"><h2>Les types de donnees</h2></span><br>
+<pre><span id="TYPEhauteur"><span class="keyword">type</span> <code class="type"></code>hauteur</span> </pre>
+
+<pre><span id="TYPEcouleur"><span class="keyword">type</span> <code class="type"></code>couleur</span> </pre>
+
+<pre><span id="TYPEcarte"><span class="keyword">type</span> <code class="type"></code>carte</span> </pre>
+
+<br>
+<span id="2_Constructeuretselecteurs"><h2>Constructeur et selecteurs</h2></span><br>
+<pre><span id="VALcree"><span class="keyword">val</span> cree</span> : <code class="type">char -> int -> <a href="Carte.html#TYPEcarte">carte</a></code></pre><div class="info">
+<code class="code">cree s n</code> renvoie une carte dont la couleur est donnee par <code class="code">s</code> et la hauteur par <code class="code">n</code>.
+<p>
+
+   <b>CU :</b> <code class="code">s</code> ne peut prendre que l'une des quatre valeurs <ul>
+<li><code class="code">'T'</code> pour trefle</li>
+<li><code class="code">'P'</code> pour pique</li>
+<li><code class="code">'K'</code> pour carreau</li>
+<li><code class="code">'C'</code> pour coeur
+   Sinon, declenchement de l'exception <code class="code">Failure "Carte.cree : couleur non valide"</code>.</li>
+</ul>
+
+   <code class="code">n</code> doit etre un entier compris entre 1 et 13 avec la correspondance<ul>
+<li><code class="code">1</code> pour un as</li>
+<li><code class="code">11</code> pour un valet</li>
+<li><code class="code">12</code> pour une dame</li>
+<li><code class="code">13</code> pour un roi</li>
+<li>les autres valeurs representant elles-memes.
+   Sinon, declenchement de l'exception <code class="code">Failure "Carte.cree : hauteur non valide"</code>.</li>
+</ul>
+<br>
+</div>
+<pre><span id="VALcouleur"><span class="keyword">val</span> couleur</span> : <code class="type"><a href="Carte.html#TYPEcarte">carte</a> -> <a href="Carte.html#TYPEcouleur">couleur</a></code></pre><div class="info">
+<code class="code">couleur c</code> renvoie la couleur de la carte <code class="code">c</code>.<br>
+</div>
+<pre><span id="VALhauteur"><span class="keyword">val</span> hauteur</span> : <code class="type"><a href="Carte.html#TYPEcarte">carte</a> -> <a href="Carte.html#TYPEhauteur">hauteur</a></code></pre><div class="info">
+<code class="code">hauteur c</code> renvoie la hauteur de la carte <code class="code">c</code>.<br>
+</div>
+<br>
+<span id="2_Fonctionsdecomparaison"><h2>Fonctions de comparaison</h2></span><br>
+<pre><span id="VALhauteurs_consecutives"><span class="keyword">val</span> hauteurs_consecutives</span> : <code class="type"><a href="Carte.html#TYPEhauteur">hauteur</a> -> <a href="Carte.html#TYPEhauteur">hauteur</a> -> bool</code></pre><div class="info">
+<code class="code">hauteurs_consecutives h1 h2</code> = <ul>
+<li><code class="code">true</code> si les deux hauteurs sont consecutives</li>
+<li><code class="code">false</code> sinon</li>
+</ul>
+<br>
+</div>
+<pre><span id="VALcompare_hauteurs"><span class="keyword">val</span> compare_hauteurs</span> : <code class="type"><a href="Carte.html#TYPEhauteur">hauteur</a> -> <a href="Carte.html#TYPEhauteur">hauteur</a> -> int</code></pre><div class="info">
+<code class="code">compare_hauteurs h1 h2</code> compare les hauteurs <code class="code">h1</code> et <code class="code">h2</code>.<ul>
+<li>= -1 si la hauteur <code class="code">h1</code> est plus petite que <code class="code">h2</code></li>
+<li>= 1 si la hauteur <code class="code">h1</code> est plus grande que <code class="code">h2</code></li>
+<li>= 0 si les hauteurs sont egales.</li>
+</ul>
+<br>
+</div>
+<pre><span id="VALcompare_cartes"><span class="keyword">val</span> compare_cartes</span> : <code class="type"><a href="Carte.html#TYPEcarte">carte</a> -> <a href="Carte.html#TYPEcarte">carte</a> -> int</code></pre><div class="info">
+<code class="code">compare_cartes c1 c2</code> compare les hauteurs des cartes <code class="code">c1</code> et <code class="code">c2</code>.<ul>
+<li>= -1 si la hauteur de <code class="code">c1</code> est plus petite que celle de <code class="code">c2</code></li>
+<li>= 1 si la hauteur de <code class="code">c1</code> est plus grande que celle de <code class="code">c2</code></li>
+<li>= 0 si les hauteurs sont egales.</li>
+</ul>
+
+<p>
+<b>Remarque : </b> on peut aussi tester l'egalite de deux cartes avec l'operateur <code class="code">=</code>.<br>
+</div>
+<br>
+<span id="2_Proceduresdmpression"><h2>Procedures d'mpression</h2></span><br>
+<pre><span id="VALimprimer_couleur"><span class="keyword">val</span> imprimer_couleur</span> : <code class="type"><a href="Carte.html#TYPEcouleur">couleur</a> -> unit</code></pre><div class="info">
+<code class="code">imprimer_couleur c</code> imprime la couleur <code class="code">c</code>.
+   Un trefle est imprime <code class="code">T</code>, un pique <code class="code">P</code>, un carreau <code class="code">K</code> et un coeur <code class="code">C</code>.<br>
+</div>
+<pre><span id="VALimprimer_hauteur"><span class="keyword">val</span> imprimer_hauteur</span> : <code class="type"><a href="Carte.html#TYPEhauteur">hauteur</a> -> unit</code></pre><div class="info">
+<code class="code">imprimer_hauteur</code> imprime la couleur <code class="code">h</code>.<br>
+</div>
+<pre><span id="VALimprimer_carte"><span class="keyword">val</span> imprimer_carte</span> : <code class="type"><a href="Carte.html#TYPEcarte">carte</a> -> unit</code></pre><div class="info">
+<code class="code">imprimer_carte c</code> imprime la carte <code class="code">c</code>.
+   L'ipression se fait sur deux caracteres :<ul>
+<li>le premier pour la hauteur</li>
+<li>et le second pour la couleur.</li>
+</ul>
+
+   L'impression d'un roi de carreau produit donc <code class="code">RK</code>.<br>
+</div>
+<br>
+<span id="2_Constructionsdepaquetdecartes"><h2>Constructions de paquet de cartes</h2></span><br>
+<pre><span id="VALpaquet_ordonne"><span class="keyword">val</span> paquet_ordonne</span> : <code class="type">unit -> <a href="Carte.html#TYPEcarte">carte</a> array</code></pre><div class="info">
+<code class="code">paquet_ordonne ()</code> renvoie un tableau contenant les 52 cartes d'un jeu de poker.
+   Ces cartes sont rangees par couleurs T, C, P, K, puis au sein d'une couleur dans l'ordre As, 2, 3, ..., Roi.<br>
+</div>
+<pre><span id="VALbattre_paquet"><span class="keyword">val</span> battre_paquet</span> : <code class="type">unit -> <a href="Carte.html#TYPEcarte">carte</a> array</code></pre><div class="info">
+<code class="code">battre_paquet ()</code> renvoie un tableau contenant les 52 cartes d'un jeu de poker dans un ordre quelconque.<br>
+</div>
+</body></html>

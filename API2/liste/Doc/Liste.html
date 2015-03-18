@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Liste" rel="Chapter" href="Liste.html"><link title="Le type" rel="Section" href="#2_Letype">
+<link title="Constructeurs" rel="Section" href="#2_Constructeurs">
+<link title="Sélecteurs" rel="Section" href="#2_Slecteurs">
+<link title="Prédicat" rel="Section" href="#2_Prdicat">
+<title>Les listes : Liste</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;</div>
+<center><h1>Module <a href="type_Liste.html">Liste</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Liste: <code class="code">sig</code> <a href="Liste.html">..</a> <code class="code">end</code></pre>Module définissant un type de données pour les listes, ainsi que les opérations primitives les accompagnant.<br>
+<b>Author(s):</b> FIL - IEEA - Univ. Lille1 (oct 2010)<br>
+<hr width="100%">
+<br>
+<span id="2_Letype"><h2>Le type</h2></span><br>
+<pre><span id="TYPEliste"><span class="keyword">type</span> <code class="type">'a</code> liste</span> </pre>
+<div class="info">
+Le type des listes contenant des éléments de type <code class="code">'a</code>.<br>
+</div>
+
+<pre><span id="EXCEPTIONListe_vide"><span class="keyword">exception</span> Liste_vide</span></pre>
+<br>
+<span id="2_Constructeurs"><h2>Constructeurs</h2></span><br>
+<pre><span id="VALliste_vide"><span class="keyword">val</span> liste_vide</span> : <code class="type">'a <a href="Liste.html#TYPEliste">liste</a></code></pre><div class="info">
+La liste vide.<br>
+</div>
+<pre><span id="VALajoute_en_tete"><span class="keyword">val</span> ajoute_en_tete</span> : <code class="type">'a -> 'a <a href="Liste.html#TYPEliste">liste</a> -> 'a <a href="Liste.html#TYPEliste">liste</a></code></pre><div class="info">
+<code class="code">ajoute_en_tete x l</code> renvoie une liste dont la tête est <code class="code">x</code> et le reste <code class="code">l</code>.<br>
+</div>
+<br>
+<span id="2_Slecteurs"><h2>Sélecteurs</h2></span><br>
+<pre><span id="VALtete"><span class="keyword">val</span> tete</span> : <code class="type">'a <a href="Liste.html#TYPEliste">liste</a> -> 'a</code></pre><div class="info">
+<code class="code">tete l</code> renvoie le premier élément de la liste <code class="code">l</code>.<br>
+<b>Raises</b> <code>Liste_vide</code> si <code class="code">l</code> est vide.<br>
+</div>
+<pre><span id="VALreste"><span class="keyword">val</span> reste</span> : <code class="type">'a <a href="Liste.html#TYPEliste">liste</a> -> 'a <a href="Liste.html#TYPEliste">liste</a></code></pre><div class="info">
+<code class="code">reste l</code> renvoie le reste de la liste <code class="code">l</code>.<br>
+<b>Raises</b> <code>Liste_vide</code> si <code class="code">l</code> est vide.<br>
+</div>
+<br>
+<span id="2_Prdicat"><h2>Prédicat</h2></span><br>
+<pre><span id="VALest_vide"><span class="keyword">val</span> est_vide</span> : <code class="type">'a <a href="Liste.html#TYPEliste">liste</a> -> bool</code></pre><div class="info">
+<code class="code">est_vide l</code> =<ul>
+<li>Vrai si la liste <code class="code">l</code> est vide,</li>
+<li>Faux sinon</li>
+</ul>
+<br>
+</div>
+</body></html>

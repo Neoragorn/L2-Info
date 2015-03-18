@@ -1,0 +1,37 @@
+(*
+  Auteur : MOEVI Alexandre
+  Date   : 8 novembre 2013
+  Objet  : TP n°6 - Les grands entiers
+*)
+
+open Big_int ;;
+
+let question1_1 = string_of_big_int(power_int_positive_int 2 1024) ;;
+
+let question1_2 = string_of_big_int(mult_big_int (power_int_positive_int 2 1024) (power_int_positive_int 2 1024)) ;;
+
+let rec fact n =
+	if eq_big_int (big_int_of_int n) (zero_big_int) then 
+		unit_big_int
+	else
+		mult_big_int (big_int_of_int n) (fact(n-1)) ;;
+
+
+let complete chaine =
+	if (String.length chaine) mod 4 <> 0 then
+		(String.make (4 - ((String.length chaine) mod 4)) '0') ^ chaine 
+	else
+		chaine;;
+
+let rec chaine_en_nat chaine =
+	let complet = complete chaine in
+		if String.length complet = 0 then
+			[]
+		else
+			(chaine_en_nat(String.sub complet 4 ((String.length complet) - 4)))@[(int_of_string(String.sub complet 0 4))];;
+
+
+let rec nat_en_chaine natu =
+	
+
+

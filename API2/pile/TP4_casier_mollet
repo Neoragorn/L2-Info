@@ -1,0 +1,70 @@
+TP4 API2
+Casier Sofian
+Mollet Loick
+
+Question 1)
+
+let p = Stack.create () in
+  Stack.push 1 p;
+  Stack.push 7 p;
+  Stack.push 5 p;
+  Printf.printf "%d\n" (Stack.pop p);
+  Printf.printf "%d\n" (Stack.pop p); 
+  Printf.printf "%d\n" (Stack.pop p);
+  Stack.is_empty p;;
+
+let p = Stack.create () in
+  Stack.push 1 p;
+  Stack.push 7 p;
+  Stack.push 5 p;
+while not (Stack.is_empty p) do
+Printf.printf "%d\n" (Stack.pop p);
+done;;
+
+let mystere p =
+let s = ref 0 in
+while not (Stack.is_empty p) do
+s := !s + (Stack.pop p);
+done;
+Stack.push !s p;;
+
+Question 2)
+
+let imprimer_pile p =
+let copy = p in
+while not (Stack.is_empty p) do
+Printf.printf "%d\n" (Stack.pop copy);
+done;;
+
+Question 3)
+
+# lexemes "";;
+- : lexeme array = [||]
+# lexemes "123";;
+- : lexeme array = [|Int 123|]
+# lexemes "+";;  
+- : lexeme array = [|Op Add|]
+# lexemes "12 % 3";;
+- : lexeme array = [|Int 12; Op Mod; Int 3|]
+# lexemes "12 3 +";;
+- : lexeme array = [|Int 12; Int 3; Op Add|]
+# lexemes "+ 3 - *";;
+- : lexeme array = [|Op Add; Int 3; Op Sub; Op Mul|]
+# lexemes "a + b";;  
+Exception: Caractere_non_autorise.
+
+Question 6)
+
+let check_nbr s =
+let n = String.length s
+and i = ref 0
+and cmpt = ref 0 in
+while (!i < n) do
+if (s.[!i] < '0') || (s.[!i] > '9') then
+cmpt := !cmpt + 1;
+i := !i + 1;
+done;
+if !cmpt <> 0 then
+false
+else
+true;;

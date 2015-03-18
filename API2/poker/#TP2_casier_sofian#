@@ -1,0 +1,10 @@
+Casier Sofian Groupe 4 licence 2
+TP poker
+
+Question 5) Une toute petite différence dans la version html que j'ai crée sur:
+ val imprimer_hauteur : hauteur -> unit
+imprimer_hauteur imprime la couleur h.
+
+Au lieu de "imprimer_hauteur imprime la hauteur h"
+Sinon, la doc est exactement pareille.
+
