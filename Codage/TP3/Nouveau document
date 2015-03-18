@@ -1,0 +1,64 @@
+TP 4 Codage
+Casier Sofian
+
+Question 2)
+
+Question 3)
+
+Question 4)
+
+
+Question 5)
+
+let check_octet tab_oct =
+let cmpt = ref 0 in
+if tab_oct.(0) <> -1
+then cmpt := !cmpt + 1;
+if tab_oct.(1) <> -1
+then cmpt := !cmpt + 1;
+if tab_oct.(2) <> -1
+then cmpt := !cmpt + 1;
+!cmpt;;
+
+let traiter_un_octet tab = 
+let sextet = (tab.(0) lsr 2) in
+let carac = char_of_int(sextet) in
+Printf.printf "%c==" carac;;
+
+let traiter_deux_octets tab =
+let sextet_1 = ref (tab.(0) lsr 2)
+and sextet_2 = ref 0
+and sextet_3 = ref 0
+and reste = ref 0 in
+reste := tab.(0) - ((tab.(0) lsr 2) lsl 2);
+sextet_2 := !reste + (tab.(1) lsr 4);
+sextet_3 := tab.(1) - ((tab.(1) lsr 4) lsl 4);
+let carac_1 = char_of_int(!sextet_1)
+and carac_2 = char_of_int(!sextet_2)
+and carac_3 = char_of_int(!sextet_3) in
+Printf.printf "%c%c%c=" carac_1 carac_2 carac_3;;
+
+let traiter_trois_octets tab =
+let sextet_1 = ref (tab.(0) lsr 2)
+and sextet_2 = ref 0
+and sextet_3 = ref 0
+and sextet_4 = tab.(2) - ((tab.(2) lsr 6) lsl 6)
+and reste = ref 0 in
+reste := tab.(0) - ((!sextet_1) lsl 2);
+sextet_2 := (tab.(1) lsr 4) + !reste;
+reste := tab.(1) - (!sextet_2 lsl 4);
+sextet_3 := (tab.(2) lsr 2) + !reste;
+let carac_1 = char_of_int(!sextet_1)
+and carac_2 = char_of_int(!sextet_2)
+and carac_3 = char_of_int(!sextet_3)
+and carac_4 = char_of_int(sextet_4) in
+Printf.printf "%c%c%c%C" carac_1 carac_2 carac_3 carac_4;;
+
+let traiter_octet tab_octets = 
+if check_octet(tab_octets) = 1 then
+traiter_un_octet tab_octets;
+if check_octet(tab_octets) = 2 then
+traiter_deux_octets tab_octets;
+if check_octet(tab_octets) = 3 then
+traiter_trois_octets tab_octets;
+done;;

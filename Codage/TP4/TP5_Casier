@@ -1,0 +1,104 @@
+TP5 codage
+Casier Sofian
+
+Question 2)
+
+Codage.code 'a' codage;;          
+- : string = "010"
+Codage.code 'b' codage;;
+- : string = "100"
+# Codage.code 'c' codage;;
+- : string = "110"
+
+Question 3)
+
+Codage.decode "110" codage;;
+- : char = 'c'
+# Codage.decode "100" codage;;
+- : char = 'b'
+# Codage.decode "010" codage;;
+- : char = 'a'
+
+Question 4)
+
+Codage.code 'B' codage;;
+Exception: Codage.Symbole_non_codable.
+
+Question 5)
+
+Codage.decode "111" codage;;
+Exception: Codage.Mot_non_decodable.
+
+Question 6)
+
+let codage1 = Codage.creer alphabet_source code1;;
+val codage1 : char Codage.codage = <abstr>
+# let codage2 = Codage.creer alphabet_source code2;;
+val codage2 : char Codage.codage = <abstr>
+# let codage3 = Codage.creer alphabet_source code3;;
+val codage3 : char Codage.codage = <abstr>
+
+Question 7)
+
+Codage.code 'B' codage1;;
+- : string = "00001"
+# Codage.code 'B' codage2;;
+- : string = "-.../"
+# Codage.code 'B' codage3;;
+- : string = "0010011"
+
+Question 8-9)
+
+open Codage
+
+let code_mot s char_codage = 
+let n = (String.length s) in
+let final_s = ref ("")
+and i = ref 0 in
+while !i < n do
+final_s :=  (!final_s)^(Codage.code (s.[!i]) char_codage);
+i := !i + 1;
+done;
+!final_s;;
+
+Question 10)
+
+(String.length s * 5) pour le codage 1
+
+Question 11)
+
+let decode_mot_longueur_fixe s char_codage =
+let n = (String.length s) in
+let tmp = ref ("")
+and final = ref ("")
+and compteur = ref 0 
+and i = ref 0 in
+while !i < n do
+(!tmp.(!i)) := (s.(!i));
+compteur := !compteur + 1;
+i := !i + 1;
+done;;
+
+
+
+final := (!tmp)^(!final);
+
+
+let decode_mot_longueur_fixe s char_codage = 
+let n = (String.length s) in
+let final_s = ref ()
+and tmp = ref ("")
+and compteur = ref 0
+and i = ref 0 in
+while !i < n do
+tmp := String.make 1 s.[!i]^(!tmp);
+compteur := !compteur + 1;
+if !compteur = 4 then
+final_s := Codage.decode !tmp char_codage;
+if !compteur = 4 then
+tmp := "";
+if !compteur = 4 then
+compteur := 0;
+i := !i + 1;
+done;
+!final_s;;

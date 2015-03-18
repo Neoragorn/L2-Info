@@ -1,0 +1,89 @@
+TP 4 Codage
+Casier Sofian
+
+Question 2)
+
+Question 3)
+
+Question 4)
+
+
+Question 5)
+
+let table =
+  [|'A'; 'B'; 'C'; 'D'; 'E'; 'F'; 'G'; 'H';
+    'I'; 'J'; 'K'; 'L'; 'M'; 'N'; 'O'; 'P';
+    'Q'; 'R'; 'S'; 'T'; 'U'; 'V'; 'W'; 'X';
+    'Y'; 'Z'; 'a'; 'b'; 'c'; 'd'; 'e'; 'f';
+    'g'; 'h'; 'i'; 'j'; 'k'; 'l'; 'm'; 'n';
+    'o'; 'p'; 'q'; 'r'; 's'; 't'; 'u'; 'v';
+    'w'; 'x'; 'y'; 'z'; '0'; '1'; '2'; '3';
+    '4'; '5'; '6'; '7'; '8'; '9'; '+'; '/'|];;
+
+let check_octet tab_oct =
+let cmpt = ref 0 in
+if tab_oct.(0) <> -1
+then cmpt := !cmpt + 1;
+if tab_oct.(1) <> -1
+then cmpt := !cmpt + 1;
+if tab_oct.(2) <> -1
+then cmpt := !cmpt + 1;
+!cmpt;;
+
+let traiter_un_octet tab = 
+let sextet_1 = (tab.(0) lsr 2)
+and sextet_2 = (tab.(0) - ((tab.(0) lsr 2) lsl 2)) lsl 4 in
+Printf.printf "%c%c==" table.(sextet_1) table.(sextet_2);;
+
+let traiter_deux_octets tab =
+let sextet_1 = ref (tab.(0) lsr 2)
+and sextet_2 = ref 0
+and sextet_3 = ref 0
+and reste = ref 0 in
+reste := tab.(0) - ((tab.(0) lsr 2) lsl 2);
+sextet_2 := (!reste lsl 4) + (tab.(1) lsr 4);
+sextet_3 := (tab.(1) - ((tab.(1) lsr 4) lsl 4)) lsl 2;
+Printf.printf "%c%c%c=" table.(!sextet_1) table.(!sextet_2) table.(!sextet_3);;
+
+let traiter_trois_octets tab =
+let sextet_1 = ref (tab.(0) lsr 2)
+and sextet_2 = ref 0
+and sextet_3 = ref 0
+and sextet_4 = tab.(2) - ((tab.(2) lsr 6) lsl 6)
+and reste = ref 0 in
+reste := tab.(0) - ((tab.(0)lsr 2) lsl 2);
+sextet_2 := (tab.(1) lsr 4) + (!reste lsl 4);
+reste := tab.(1) - ((tab.(1) lsr 4) lsl 4);
+sextet_3 := (tab.(2) lsr 6) + (!reste lsl 2);
+Printf.printf "%c%c%c%c" table.(!sextet_1) table.(!sextet_2) table.(!sextet_3) table.(sextet_4);;
+
+let traiter_octets tab_octets = 
+if check_octet(tab_octets) = 1 then
+traiter_un_octet tab_octets
+else if check_octet(tab_octets) = 2 then
+traiter_deux_octets tab_octets
+else if check_octet(tab_octets) = 3 then
+traiter_trois_octets tab_octets;;
+
+let encoder_base64 source =
+  let entree = open_in_bin source
+  and triplet_octets = Array.make 3 (-1) in
+    try
+      while true do
+        triplet_octets.(0) <- input_byte entree ;
+        triplet_octets.(1) <- input_byte entree ;
+        triplet_octets.(2) <- input_byte entree ;
+        traiter_octets triplet_octets
+      done
+    with
+      | End_of_file ->
+          traiter_octets triplet_octets ;
+          close_in entree;;
+
+Question 8)
+
+let decode_char carac =
+let nb = ref (int_of_char(carac)) in
+nb := (!nb lsr 2);
+!nb;;
+

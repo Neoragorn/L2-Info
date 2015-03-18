@@ -1,0 +1,37 @@
+digraph G{
+bgcolor="#FFFF00";
+node [label="", shape=circle, style=filled, fillcolor="#AAAAFF"];
+noeud;
+noeud0;
+noeud00[label="0", shape=hexagon, fillcolor="#FF6666"];
+noeud000[shape=none, label="", fillcolor="#FFFF00"];
+noeud001[label="3", shape=hexagon, fillcolor="#FF6666"];
+noeud0010[shape=none, label="", fillcolor="#FFFF00"];
+noeud0011[shape=none, label="", fillcolor="#FFFF00"];
+"noeud001" -> "noeud0010";
+"noeud001" -> "noeud0011";
+"noeud00" -> "noeud000";
+"noeud00" -> "noeud001";
+noeud01[label="1", shape=hexagon, fillcolor="#FF6666"];
+noeud010[shape=none, label="", fillcolor="#FFFF00"];
+noeud011[shape=none, label="", fillcolor="#FFFF00"];
+"noeud01" -> "noeud010";
+"noeud01" -> "noeud011";
+"noeud0" -> "noeud00";
+"noeud0" -> "noeud01";
+noeud1;
+noeud10[shape=none, label="", fillcolor="#FFFF00"];
+noeud11;
+noeud110[label="2", shape=hexagon, fillcolor="#FF6666"];
+noeud1100[shape=none, label="", fillcolor="#FFFF00"];
+noeud1101[shape=none, label="", fillcolor="#FFFF00"];
+"noeud110" -> "noeud1100";
+"noeud110" -> "noeud1101";
+noeud111[shape=none, label="", fillcolor="#FFFF00"];
+"noeud11" -> "noeud110";
+"noeud11" -> "noeud111";
+"noeud1" -> "noeud10";
+"noeud1" -> "noeud11";
+"noeud" -> "noeud0";
+"noeud" -> "noeud1";
+}

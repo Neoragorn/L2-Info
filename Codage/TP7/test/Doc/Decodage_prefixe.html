@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Arbre_codage.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Codage" rel="Chapter" href="Codage.html">
+<link title="Un_codage" rel="Chapter" href="Un_codage.html">
+<link title="Arbre_codage" rel="Chapter" href="Arbre_codage.html">
+<link title="Decodage_prefixe" rel="Chapter" href="Decodage_prefixe.html"><title>TP : Décodage préfixe : Decodage_prefixe</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Arbre_codage.html" title="Arbre_codage">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Decodage_prefixe.html">Decodage_prefixe</a></h1>
+
+<pre><span class="keyword">module</span> Decodage_prefixe: <code class="code">sig</code> <a href="Decodage_prefixe.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Décodage d'un fichier codé à l'aide d'un codage binaire préfixe.
+<p>
+
+   Nécessite le module Arbre_codage.<br>
+<b>Author(s):</b> FIL - IEEA - Univ. Lille1<br>
+</div>
+<hr width="100%">
+
+<pre><span id="EXCEPTIONDecodage_impossible"><span class="keyword">exception</span> Decodage_impossible</span></pre>
+<div class="info ">
+Exception déclenchée par <code class="code">decoder</code> en cas de fichier mal codé<br>
+</div>
+
+<pre><span id="VALdecoder_fichier"><span class="keyword">val</span> decoder_fichier</span> : <code class="type">string -> int <a href="Arbre_codage.html#TYPEt">Arbre_codage.t</a> -> string -> unit</code></pre><div class="info ">
+<code class="code">decoder_fichier source arbre cible</code> 
+   décode le fichier <code class="code">source</code> avec l'<code class="code">arbre</code> du codage 
+   dans le fichier <code class="code">cible</code>.
+<p>
+
+   <b>CU :</b> le fichier <code class="code">source</code> doit avoir été codé 
+   avec un codage binaire préfixe décrit par <code class="code">arbre</code>.
+   En particulier ce fichier ne peut pas être vide.<br>
+</div>
+</body></html>

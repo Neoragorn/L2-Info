@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Canal_binaire" rel="Chapter" href="Canal_binaire.html"><title>TP : Canal bruité : Canal_binaire</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Canal_binaire.html">Canal_binaire</a></h1>
+
+<pre><span class="keyword">module</span> Canal_binaire: <code class="code">sig</code> <a href="Canal_binaire.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Module de simulation d'un canal binaire symétrique sans mémoire.<br>
+<b>Author(s):</b> FIL - IEEA - Univ. Lille 1 (nov 2010)<br>
+</div>
+<hr width="100%">
+
+<pre><span id="EXCEPTIONPas_une_proba"><span class="keyword">exception</span> Pas_une_proba</span> <span class="keyword">of</span> <code class="type">float</code></pre>
+
+<pre><span id="EXCEPTIONPas_un_octet"><span class="keyword">exception</span> Pas_un_octet</span> <span class="keyword">of</span> <code class="type">int</code></pre>
+
+<pre><span id="VALcbssm"><span class="keyword">val</span> cbssm</span> : <code class="type">float -> int -> int</code></pre><div class="info ">
+<code class="code">cbssm p n</code> renvoie un octet <code class="code">n xor e</code> où <code class="code">e</code> est un octet dont chaque bit vaut 1 avec la probabilité <code class="code">p</code>, et 0 avec la probabilité <code class="code">1 - p</code>.<br>
+<b>Raises</b> <code>Pas_un_octet</code> si <code class="code">n</code> n'est pas un octet (c.-à-d. si <code class="code">n</code> n'est pas compris entre 0 et 255).<br>
+</div>
+</body></html>

@@ -1,0 +1,65 @@
+TP3 Codage
+Duquesnoy Pierre
+Casier Sofian
+
+-------------
+
+
+Question 2)
+
+En ISO 624 octets , en UTF8 639 octets
+Le format ISO et le format UTF-8 ne sont pas encodés sur le même nombres d'octets , le format ISO est encodé sur 8 bits , l'UTF-8 peut coder des caractères sur plusieurs octets.
+
+Question 3)
+
+On prend les deux premier bits de l'octet en ISO et on additionne les deux premiers bits tout en faisant un décallage à gauche de 6
+Ensuite , on prend les 6 autres bits et on fait un masque binaire. C'est à dire que l'ont fait n OR 10000000 ce qui nous permet d'y insérer les 6 bits.
+
+Question 4)
+
+let entree = open_in source
+and sortie = open_out cible in
+try
+while true do
+let n = ref (input_byte entree) in
+if !n < 160 then
+output_byte sortie !n
+else
+begin 
+let ni = !n lsr(6)
+and nx = ((!n lsr(6)) lsl(6)) in
+let first_octet = ni + (ni lsl(6))
+and second_octet = (!n - nx) lor 128 in
+output_byte sortie first_octet;
+output_byte sortie second_octet
+end
+done;
+with
+End_of_file ->
+close_in entree ;
+close_out sortie ;;
+
+Question 5)
+
+Question 6)
+
+let convertir_utf entree sortie =
+let inf = open_in entree
+and outf = open_out sortie in
+try
+while true do
+let n = ref (input_byte inf) in
+if !n < 160 then
+output_byte outf !n
+else
+begin
+let nx = (!n lsr 6) lsl 6
+and n = ref (input_byte inf) in
+let ni = !n - 128 in
+output_byte outf (ni + nx)
+end
+done;
+with
+End_of_file ->
+close_in inf;
+close_out outf;;
