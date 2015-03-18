@@ -1,0 +1,10 @@
+TP6 Battleship
+Rendu fait par Casier Sofian
+Groupe 2 licence INFO
+
+TP normalement entierement fonctionnel.
+
+Se placer dans le repertoire src et taper la commande :
+Pour compiler : javac battleship/*.java
+Pour executer : java battleship.GameMain
+
