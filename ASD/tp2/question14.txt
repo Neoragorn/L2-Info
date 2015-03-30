@@ -1,0 +1,4 @@
+Moyenne normal: 275
+Moyenne Aleatoire: 276
+Moyenne Opti: 823
+

@@ -1,0 +1,18 @@
+Casier Sofian
+
+Question 2)
+
+Il faut compter le nombre d'opération de comparaison que le programme doit faire à chaque fois que l'on passe à un nouveau marqueur pour vérifier si il est positif ou non
+Ce serait donc : Op * Nombre de marqueurs * nombres de marqueurs positifs
+
+question 3)
+Le pire des cas devrait être si il n'y a aucun élément négatif dans le tableau des marqueurs.
+
+Question 4)
+
+Question 6)
+Le pire des cas pour cet algo serait si le tableau des marqueurs à tester est dans l'ordre décroissant
+
+question 10)
+
+m: 5 p : 10 -> premiere version

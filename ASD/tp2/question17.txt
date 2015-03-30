@@ -1,0 +1,4 @@
+Moyenne normal: 281
+Moyenne Aleatoire: 279
+Moyenne Opti: 823
+Moyenne Opti comparaison minimum: 49
