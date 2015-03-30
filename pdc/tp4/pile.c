@@ -1,28 +1,56 @@
 #include "pile.h"
 
-void	pile_push(Pile_t **pile, int val)
+Pile_t *initialiser()
 {
-	Pile_t *p_new = malloc(sizeof *p_new);
-	if (p_new != NULL)
-	{
-		p_new->valeur = val;
-		p_new->prec = *pile;
-		*pile = p_new;
-	} 
+    Pile_t *pile = malloc(sizeof(*pile));
+    pile->premier = NULL;
+    return (pile);
 }
 
-int		pile_pop(Pile_t **pile)
+void empiler(Pile_t *pile, int nvNombre)
 {
-	int	ret;
+    Element *nouveau = malloc(sizeof(*nouveau));
+    if (pile == NULL || nouveau == NULL)
+        exit(EXIT_FAILURE);
 
-	ret = -1;
-	if (*pile != NULL)
-	{
-		Pile_t *tmp = (*pile)->prec;
-		ret = (*pile)->valeur;
-		free(*pile), *pile = NULL;
-		*pile = tmp;
-	}
-	return ret;
+    nouveau->nombre = nvNombre;
+    nouveau->suivant = pile->premier;
+    pile->premier = nouveau;
 }
+
+int depiler(Pile_t *pile)
+{
+    if (pile == NULL)
+        exit(EXIT_FAILURE);
+
+    int nombreDepile = 0;
+    Element *elementDepile = pile->premier;
+
+    if (pile != NULL && pile->premier != NULL)
+    {
+        nombreDepile = elementDepile->nombre;
+        pile->premier = elementDepile->suivant;
+        free(elementDepile);
+    }
+
+    return nombreDepile;
+}
+
+void afficherPile(Pile_t *pile)
+{
+    if (pile == NULL)
+    {
+        exit(EXIT_FAILURE);
+    }
+    Element *actuel = pile->premier;
+
+    while (actuel != NULL)
+    {
+        printf("%d\n", actuel->nombre);
+        actuel = actuel->suivant;
+    }
+
+    printf("\n");
+}
+
 

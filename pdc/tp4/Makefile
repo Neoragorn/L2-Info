@@ -1,10 +1,13 @@
 all: ex_28 ex_29
 
-ex_29 : ex_29.c mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o
-	gcc -o ex_29 ex_29.c pile.c mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o
+ex_29 : ex_29.c mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o pile.o
+	gcc -o ex_29 ex_29.c pile.o mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o
 
 ex_28 : ex_28.c mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o
 	gcc -o ex_28 ex_28.c mcu_readl.o mcu_fatal.o mcu_wl.o mcu_ww.o mcu_wc.o
+
+pile.o: pile.c
+	gcc -c pile.c
 
 mcu_wl.o: mcu_wl.c
 	gcc -c mcu_wl.c

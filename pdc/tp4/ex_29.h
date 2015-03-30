@@ -10,7 +10,7 @@
 
 #include "pile.h"
 
-typedef int MatriceAdjacence_t[TAILLE_DICO + 1][TAILLE_DICO];
+typedef int MatriceAdjacence_t[TAILLE_DICO][TAILLE_DICO];
 
 char *dico[] = { "drap", "nuee", "agit", "mais", "krak", "eric", 
      "aaai", "agir", "drop", "dome", "buis", "puce", "roda", "drue",
