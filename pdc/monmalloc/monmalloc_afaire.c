@@ -3,34 +3,23 @@
 
 void inserer(liste_t *list, liste_t cell)
 {	
-	liste_t *tmp = NULL;
-
-	if (sizeof((*list)->userspacestop) - (sizeof((*list)->userspacestart))
-		>= (sizeof(cell->userspacestop)) - (sizeof(cell->userspacestart)))
-		printf("j'insere de suite\n");
-	else
+	while ((*list) != NULL)
 	{
-		tmp = list;
+		if ((char*)((*list)->userspacestop) - ((char*)((*list)->userspacestart))
+			>= ((char*)(cell->userspacestop)) - ((char*)(cell->userspacestart)))
+			break;
 		(*list) = (*list)->next;
-		while ((*list)->next != NULL)
-		{
-			if (sizeof((*list)->userspacestop) - (sizeof((*list)->userspacestart))
-				>= (sizeof(cell->userspacestop)) - (sizeof(cell->userspacestart)))
-			{
-				printf("j'insere là");
-				break;
-			}
-			tmp = list;
-			(*list) = (*list)->next;
-		}
 	}
+	cell->next = *list;
+	*list = cell;
 }
 
 liste_t extraire(liste_t *list, unsigned int size ) 
 {
-	while ((*list)->next != NULL)
+	while ((*list) != NULL)
 	{
-		if (sizeof((*list)->userspacestop) - (sizeof((*list)->userspacestart)) >= size)
+		if ((char*)(*list)->userspacestop
+			- (char*)(*list)->userspacestart >= size)
 			return (*list);
 		(*list) = (*list)->next;
 	}

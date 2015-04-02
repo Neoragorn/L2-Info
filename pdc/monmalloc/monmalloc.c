@@ -8,7 +8,7 @@ void construirecellule(liste_t tmp,unsigned int size)
 {
 	tmp -> magicnumber = MAGICNUMBER ;
 	tmp -> userspacestart = (void *) ((char *) tmp + sizeof(struct cell_m)) ;	
-	tmp -> userspacestop = (void *) (((char *) tmp->userspacestart)+ size) ;
+	tmp -> userspacestop = (void *) (((char *) tmp->userspacestart)+ size) ;	
 	inserer(&freelist, tmp ) ;
 	return ;
 }
@@ -27,7 +27,6 @@ void *monmalloc(unsigned int size)
 	while(1) 
 	{
 	tmp = extraire(&freelist,size) ;
-
 	if(tmp==0)
 	 /* si aucune cellule libre n'est dans la liste des cellules libres, on en place une 
 		en allant chercher un nouveau segment*/

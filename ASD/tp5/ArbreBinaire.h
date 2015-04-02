@@ -16,6 +16,8 @@ struct NoeudBinaire_m
 } ;
 
 
+void	AjouterAuNoeud(Noeud_t, Noeud_t, char);
+
 /* cr\'ee un arbre vide */
 Noeud_t CreerArbreVide(void) ;
 

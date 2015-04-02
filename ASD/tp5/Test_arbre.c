@@ -340,16 +340,16 @@ void testABR (Noeud_t a) {
 /* Programme principal */
 int main (int argc, char **argv)
 {
-   int i;
+  int	i;
 
    testArbreBinaire(arbre1());
    testArbreBinaire(arbre2());
    testArbreBinaire(arbre3());
-/*   for (i = 0; i <= 19; i++) {
+   for (i = 0; i <= 19; i++) {
       printf("Le nombre d'arbres à %d noeuds est %d\n",i,(nbArbres(i))); 
    }
    printf("\n\n\n"); 
-   nbArbres_iteratif(19);*/
+   nbArbres_iteratif(19);
    testABR(abr1());
    testABR(abr2());
    testABR(abr3());

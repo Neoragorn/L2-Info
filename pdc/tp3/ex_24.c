@@ -5,13 +5,13 @@
 ** Login   <casier_s@epitech.net>
 **
 ** Started on  mer. janv.  28 16:39:08 2015 sofian casier
-** Last update mer. janv.  28 17:44:31 2015 sofian casier
+** Last update Tue Mar 31 18:28:21 2015 sofian casier
 */
 
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#define TABSIZE 1000
+#define TABSIZE 10
 
 void swap(int *a, int *b)
 {
@@ -28,7 +28,7 @@ int		*create_tab(int alea)
 	int	i;
 	int	nb;
 
-	tab = malloc(alea * sizeof(int));
+	tab = monmalloc(alea * sizeof(int));
 	i = 0;
 	while (i != alea)
 	{
