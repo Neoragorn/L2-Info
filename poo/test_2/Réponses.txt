@@ -1,0 +1,2 @@
+1) b devrait avoir pour valeur false
+2) b a bien pour valeur false, je n'ai rien à changer dans mon code

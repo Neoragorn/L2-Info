@@ -1,0 +1,19 @@
+TP9 Agence POO
+Casir Sofian
+Orieux Baptiste
+
+Tp entierement fonctionnel.
+
+Questions)
+
+1) b devrait avoir pour valeur false
+2) b a bien pour valeur false, je n'ai rien à changer dans mon code
+
+
+Pour compiler le programme, tapez la commande make dans le dossier racine
+
+Pour executer le programme, tapez la commande:
+java -classpath classes rental.Main
+
+Pour executer les tests, tapez la commande:
+java -jar 

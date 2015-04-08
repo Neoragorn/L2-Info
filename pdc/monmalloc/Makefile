@@ -1,4 +1,4 @@
-PAR= -ansi -pedantic -Wall -W
+PAR= -ansi -pedantic -g
 PAR+= -D_XOPEN_SOURCE=500 
 PAR+= -D_POSIX_C_SOURCE
 

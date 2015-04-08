@@ -5,13 +5,15 @@
 ** Login   <casier_s@epitech.net>
 **
 ** Started on  mer. janv.  28 16:39:08 2015 sofian casier
-** Last update Tue Mar 31 18:28:21 2015 sofian casier
+** Last update Wed Apr  8 12:07:38 2015 sofian casier
 */
 
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#define TABSIZE 10
+#define TABSIZE 100
+
+void *monmalloc(int);
 
 void swap(int *a, int *b)
 {
@@ -28,7 +30,7 @@ int		*create_tab(int alea)
 	int	i;
 	int	nb;
 
-	tab = monmalloc(alea * sizeof(int));
+	(tab) = monmalloc(alea * sizeof(int));
 	i = 0;
 	while (i != alea)
 	{
@@ -67,6 +69,13 @@ void quicksort_int(int *tab, unsigned int nelem)
 	quickSort(tab, 0, nelem);
 }
 
+
+int mycompar(const void* a, const void *b)
+{
+  int *aa = (int*) a ; int *bb =(int*)b ;
+  return *aa>*bb ;
+}
+
 int	main()
 {
 	int		*tab;
@@ -76,8 +85,9 @@ int	main()
 	i = 0;
 	srand(time(NULL));
 	alea = rand() % TABSIZE;
+	alea = 100 ;
 	tab = create_tab(alea);
-	quicksort_int(tab, alea);
+	qsort(tab, alea,sizeof(int),mycompar);
 	while (i != alea)
 	{
 		printf("%d\n", tab[i]);

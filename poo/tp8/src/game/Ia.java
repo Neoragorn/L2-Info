@@ -24,11 +24,6 @@ public class Ia extends Player
 		this.level = level;
 	};
 
-	public String getName()
-	{
-		return this.name;		
-	}
-
 	public int getLevel()
 	{
 		return this.level;		

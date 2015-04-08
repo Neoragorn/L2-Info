@@ -239,8 +239,30 @@ public class Game
 		}
 	}
 
+	/** 
+	* Methode decidant qui gagne le jeu
+	* @return: le Player qui a gagné
+	*/
+	public Player		who_won()
+	{
+		if (this.gamemod == 2)
+		{
+			if (p1.getCompteur() > p2.getCompteur())
+				return p1;
+			else
+				return p2;
+		}
+		else if (this.gamemod == 1)
+		{
+			if (ia.getCompteur() > p1.getCompteur())
+				return ia;
+			else
+				return p1;
+		}
+		return null;
+	}
 	/**
-	*   Methode lancant le jeu
+	*   Methode lancant le jeu et donnant le vainqueur
 	*/
 	public void		begin_Game()
 	{
@@ -257,5 +279,10 @@ public class Game
 			for (int i = 0; i != this.getTours(); i++)
 				playOneRound();
 		}
+		Player winner = this.who_won();
+		if (winner == null)
+			System.out.println("Pas de gagnant!");
+		else
+			System.out.println("Le vainqueur est..." + winner.getName() + "!");
 	}
 }
